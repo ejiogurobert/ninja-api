@@ -7,13 +7,12 @@ export class NinjasController {
   constructor(private readonly ninjasService: NinjasService) {}
   @Get()
   getNinjas(@Query('weapon') weapon: 'star' | 'nunchucks') {
-    const service = new NinjasService();
-    return service.getNinjas(weapon);
+    return this.ninjasService.getNinjas(weapon);
   }
 
   @Get(':id')
-  getOneNinja(@Param('id') id: string) {
-    return id;
+  getOneNinja(@Param('id') id: number) {
+    return this.ninjasService.getNinja(id);
   }
 
   @Post()

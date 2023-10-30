@@ -9,8 +9,18 @@ export class NinjasService {
 
   getNinjas(weapon?: 'star' | 'nunchucks') {
     if (weapon) {
-      return this.ninjas.filter((ninjas) => ninjas.weapon === weapon);
+      return this.ninjas.filter((ninja) => ninja.weapon === weapon);
     }
     return this.ninjas;
+  }
+
+  getNinja(id: number) {
+    const ninja = this.ninjas.find((ninja) => ninja.id === id);
+
+    if (!ninja) {
+      throw new Error('ninja not found');
+    }
+
+    return ninja;
   }
 }
