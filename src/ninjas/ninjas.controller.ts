@@ -11,7 +11,7 @@ export class NinjasController {
   }
 
   @Get(':id')
-  getOneNinja(@Param('id') id: number) {
+  getNinja(@Param('id') id: number) {
     return this.ninjasService.getNinja(id);
   }
 
@@ -19,6 +19,7 @@ export class NinjasController {
   createNinja(@Body() createNinjaDto: CreateNinjaDto) {
     return {
       name: createNinjaDto.name,
+      weapon: createNinjaDto.weapon,
     };
   }
 }
